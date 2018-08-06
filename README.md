@@ -9,9 +9,8 @@ prometheus registered client
 </dependency>
 ```
 
-增加一个properties配置文件
+增加一个java-prometheus-starter.properties配置文件 
 ```
-java-prometheus-starter.properties
 #暴露给Prometheus的端口，
 port=8001
 #job_name
