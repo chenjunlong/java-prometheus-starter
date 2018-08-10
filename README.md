@@ -1,11 +1,11 @@
 # java-prometheus-starter
-prometheus registered client
+prometheus consul registered client
 
 ``` 
 <dependency>
   <groupId>com.github.chenjunlong</groupId>
   <artifactId>java-prometheus-starter</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1</version>
 </dependency>
 ```
 
@@ -13,16 +13,22 @@ prometheus registered client
 ```
 #暴露给Prometheus的端口，
 port=8001
-#job_name
+#consul service id
+app.id=1001
+#consul service name
 app.name=spring-boot-example
-#java-prometheus-reload暴露的接口地址
-reload.register.url=10.10.21.15:9091
+#consul service tags
+app.tags=
+#consul 地址
+consul.host=xx.xx.xx.xx
+#consul 端口
+consul.port=8500
 ```
 
-在主函数启动时加载PrometheusLoader
+在主函数启动时加载PrometheusConsulRegister
 ```
 public static void main(String[] args) throws Exception {
-    PrometheusLoader.initialize();
+    PrometheusConsulRegister.initialize();
     SpringApplication.run(AnnotationRateLimitBootStrapApplication.class, args);
 }
 ```
